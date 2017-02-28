@@ -1,0 +1,35 @@
+{
+  "name": "redis-serverclient",
+  "version": "1.0.1",
+  "description": "A no-brainer Redis server + client singleton for node Apps",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vikz91/nodejs-redis.git"
+  },
+  "keywords": [
+    "redis",
+    "redis-serverclient",
+    "easy",
+    "redis",
+    "abhishek",
+    "deb",
+    "quick"
+  ],
+  "author": "Abhishek Deb",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vikz91/nodejs-redis/issues"
+  },
+  "homepage": "https://github.com/vikz91/nodejs-redis#readme",
+  "dependencies": {
+    "redis": "^2.6.5",
+    "redis-server": "^1.1.0"
+  },
+  "devDependencies": {
+    "vows": "^0.8.1"
+  }
+}
