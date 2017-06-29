@@ -4,6 +4,9 @@ A no-brainer Redis server + client singleton for node Apps
 
 This npm package uses ['redis-server'](https://www.npmjs.com/package/redis-server) and ['redis'](https://www.npmjs.com/package/redis) npm packages and seves as a singleton wrapper over these awesome npm packages. 
 
+## Whats New
+1. Optimized for Digital OCean
+
 
 ## Installation
 1. Install redis server first  

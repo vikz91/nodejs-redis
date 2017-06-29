@@ -18,22 +18,29 @@ Redis.prototype.init = function(port,callback){
 	}
 	
 	redisServer = new RedisServer(this.port);
-
+ 
 	// Start REDIS Server
 	redisServer.open((err) => {
+		redisClient = RedisClient.createClient();
+
+		redisClient.on("error", function (err) {
+			callback(err);
+		});
+
+		Redis.prototype.client = redisClient;
+
 		if (err === null) {
-			redisClient = RedisClient.createClient();
-
-			redisClient.on("error", function (err) {
-				callback(err);
-			});
-
 			Redis.prototype.server = redisServer;
-			Redis.prototype.client = redisClient;
-
 			callback(null);
 		}else{
-			callback(err);
+			if(err.toString().search('Error: Address already in use')>-1){
+				console.log('REDIS already running .');
+				Redis.prototype.server = null;
+				callback(null);
+			}else{
+				callback(err);
+			}
+			
 		}
 	});
 };
@@ -42,10 +49,15 @@ Redis.prototype.init = function(port,callback){
 //CLose redis server instance
 Redis.prototype.close=function (callback) {
 	redisClient.end(true);
-	redisServer.close((err)=>{
-		if(err){return callback(err);}
+	if(redisServer && redisServer.close){
+		redisServer.close((err)=>{
+			if(err){return callback(err);}
+			callback(null);
+		});
+	}else{
 		callback(null);
-	});
+	}
+	
 }; 
 
 
