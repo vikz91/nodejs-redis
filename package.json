@@ -1,6 +1,6 @@
 {
   "name": "redis-serverclient",
-  "version": "1.2.0",
+  "version": "1.2.2",
   "description": "A no-brainer Redis server + client singleton for node Apps",
   "main": "index.js",
   "scripts": {
@@ -26,8 +26,8 @@
   },
   "homepage": "https://github.com/vikz91/nodejs-redis#readme",
   "dependencies": {
-    "redis": "^2.6.5",
-    "redis-server": "^1.1.0"
+    "redis": "^2.8.0",
+    "redis-server": "^1.2.2"
   },
   "devDependencies": {
     "vows": "^0.8.1"
